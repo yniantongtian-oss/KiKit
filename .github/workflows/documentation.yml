@@ -6,6 +6,7 @@ on:
       - master
 jobs:
   build-doc:
+    if: github.repository == 'yaqwsx/KiKit'
     name: Build upstream version documentation
     runs-on: ubuntu-latest
     steps:
