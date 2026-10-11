@@ -13,7 +13,7 @@ jobs:
       matrix:
         kicad-version: [v9, v10, v10-testing]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - uses: ./.github/actions/setup-kicad
         with:
           kicad-version: ${{ matrix.kicad-version }}
@@ -34,20 +34,20 @@ jobs:
     runs-on: ubuntu-24.04
     needs: test
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - uses: ./.github/actions/setup-kicad
         with:
           kicad-version: v9
       - name: Build PCM package
         run: make pcm
       - name: Upload kikit-pcm package artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: kikit-pcm
           path: build/pcm-kikit
           retention-days: 7
       - name: Upload kikit-lib-pcm package artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: kikit-lib-pcm
           path: build/pcm-kikit-lib
@@ -89,7 +89,7 @@ jobs:
             additional_packages: gcc-aarch64-linux-gnu libgeos-dev
             additional_python_packages: python3-dev
     steps:
-      - uses: actions/checkout@v6 # Required for kikit version estimation
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 # Required for kikit version estimation
         with:
           fetch-depth: 0 # = fetch all
       - name: Set up QEMU
